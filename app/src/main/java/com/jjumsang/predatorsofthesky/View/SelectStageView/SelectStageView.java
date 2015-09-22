@@ -50,7 +50,7 @@ public class SelectStageView implements IState {
             paint[i] = new Paint();
         }
         stage = new RectF[20];
-
+        int a;
         paint[ColorState.BLACK].setColor(Color.BLACK);
         paint[ColorState.RED].setColor(Color.RED);
         paint[ColorState.BLUE].setColor(Color.BLUE);
