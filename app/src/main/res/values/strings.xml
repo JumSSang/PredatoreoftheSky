@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PreadatorsoftheSky</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="app_id">1020202710817</string>
+    <string name="signing_in">Signing in with Google</string>
+    <string name="signing_out">Signing out</string>
+    <string name="confirm">confirm</string>
+
+    <string name="sign_in_explanation">Sign with Google to upload your achievements and share with friends.</string>
+    <string name="you_are_signed_in">You are signed in with Google.</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="click_me">Click me!</string>
+    <string name="victory">Victory</string>
+    <string name="you_won">OK! You won!</string>
+    <string name="signin_other_error">There was an issue with sign in. Please try again later.</string>
+    <string name="achievement_trivial_victory" >okok</string>
+
+    <string name="achievement__1">CgkIoe7HxtgdEAIQAQ</string>
+    <string name="achievement_2">CgkIoe7HxtgdEAIQAg</string>
+    <string name="achievement_3">CgkIoe7HxtgdEAIQAw</string>
+    <string name="achievement___4.">CgkIoe7HxtgdEAIQBA</string>
+    <string name="achievement_5">CgkIoe7HxtgdEAIQBQ</string>
+    <string name="leaderboard_1">CgkIoe7HxtgdEAIQBg</string>
+    <string name="leaderboard_2">CgkIoe7HxtgdEAIQBw</string>
+
+
+</resources>
