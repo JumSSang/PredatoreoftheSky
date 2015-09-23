@@ -187,10 +187,10 @@ public class Ready_View implements IState {
         }
         if(!DBManager.getInstance().GetEnemy().equals("매칭을 시작하기전입니다..") && !DBManager.getInstance().GetEnemy().equals("대전 상대 검색중입니다..") &&!DBManager.getInstance().GetEnemy().equals("검색취소") )
         {
-            DBManager.getInstance().setNetState(NetState.MULTIGAMESTART);
-            DBManager.getInstance().setImforDB(DBManager.getInstance().getResponse());
-            GraphicManager.getInstance().btn_start.state_click=false;
-            AppManager.getInstance().getGameView().ChangeGameState(new St_Battle());
+          //  DBManager.getInstance().setNetState(NetState.MULTIGAMESTART);
+        //    DBManager.getInstance().setImforDB(DBManager.getInstance().getResponse());
+           // GraphicManager.getInstance().btn_start.state_click=false;
+            //AppManager.getInstance().getGameView().ChangeGameState(new St_Battle());
         }
         if( GraphicManager.getInstance().Button.get(ButtonName.STORY).state_click==true)
         {

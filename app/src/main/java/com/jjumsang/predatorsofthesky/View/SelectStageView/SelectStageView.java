@@ -13,15 +13,21 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 
 import com.google.android.gms.maps.model.Circle;
+import com.jjumsang.predatorsofthesky.Game_NetWork.NetState;
 import com.jjumsang.predatorsofthesky.Values.ColorState;
+import com.jjumsang.predatorsofthesky.Values.StoreNpcState;
+import com.jjumsang.predatorsofthesky.View.Ready_Room_View.Ready_View;
 import com.jjumsang.predatorsofthesky.View.Store.StoreView;
 import com.jjumsang.predatorsofthesky.View.Story_room.StoryView;
 import com.jjumsang.predatorsofthesky.View.Test_GameView.TestView;
 import com.jjumsang.predatorsofthesky.immortal.AppManager;
+import com.jjumsang.predatorsofthesky.immortal.DBManager;
 import com.jjumsang.predatorsofthesky.immortal.GraphicManager;
 import com.jjumsang.predatorsofthesky.immortal.Graphic_image;
 import com.jjumsang.predatorsofthesky.immortal.IState;
 import com.jjumsang.predatorsofthesky.immortal.Vec2F;
+
+import java.io.IOException;
 
 /**
  * Created by gyungmin on 2015-09-21.
@@ -35,7 +41,7 @@ public class SelectStageView implements IState {
     float m_y = 0.0f; //현재 클릭된 y좌표
     Paint[] paint;
     RectF[] stage;
-
+   RectF m_exit_btn;
     float m_Width;
     float m_Height;
     public int selectstatge=0;
@@ -50,7 +56,7 @@ public class SelectStageView implements IState {
             paint[i] = new Paint();
         }
         stage = new RectF[20];
-        int a;
+
         paint[ColorState.BLACK].setColor(Color.BLACK);
         paint[ColorState.RED].setColor(Color.RED);
         paint[ColorState.BLUE].setColor(Color.BLUE);
@@ -73,6 +79,7 @@ public class SelectStageView implements IState {
 
         stage[9] = new RectF(m_Width / 2, (m_Height - m_Height / 40 * 20), m_Width / 2 + 40, (m_Height - m_Height / 40 * 20) + 40);
         stage[10] = new RectF(m_Width / 3, (m_Height - m_Height / 40 * 20), m_Width / 3 + 40, (m_Height - m_Height / 40 * 20) + 40);
+        m_exit_btn=new RectF(m_Width/20*18,m_Height/40,m_Width/20*19,m_Height/40*3);
 
 
     }
@@ -107,6 +114,7 @@ public class SelectStageView implements IState {
         canvas.drawRect(stage[10], paint[ColorState.GREEND]);
         canvas.restore();
         canvas.drawText(""+selectstatge,0,100,paint[0]);
+        canvas.drawRect(m_exit_btn,paint[ColorState.BLUE]);
     }
 
     @Override
@@ -135,6 +143,14 @@ public class SelectStageView implements IState {
                 break;
             case MotionEvent.ACTION_UP:
                 SelectStage(m_x, m_y);
+               if(m_exit_btn.contains(m_x,m_y))
+               {
+
+
+                   DBManager.getInstance().setNetState(NetState.ROBBY);
+                   AppManager.getInstance().getGameView().ChangeGameState(new Ready_View());
+
+               }
                 m_x = 0;
                 m_y = 0;
                 break;
